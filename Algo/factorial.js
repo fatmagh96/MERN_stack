@@ -32,3 +32,13 @@ function factorial(n) {
 }
 
 console.log(factorial(num2))
+
+// class Vehicle{
+//   constructor(make, model,year,color){
+//     this.make = make
+//     this.model = model
+//     this.year = year
+//     this.color = color || 'black'
+//   }
+// }
+
