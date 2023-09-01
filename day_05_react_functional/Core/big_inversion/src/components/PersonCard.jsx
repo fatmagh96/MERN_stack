@@ -1,6 +1,6 @@
 import React from 'react'
 
-function PersonCard(props) {
+const PersonCard= (props) => {
   return (
     <>
       
