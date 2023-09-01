@@ -1,0 +1,10 @@
+npm create vite@latest
+write project name (lowercase no spaces)
+choose framework : React
+choose variant : JavaScript
+
+
+cd project_folder
+npm i
+
+npm run dev
