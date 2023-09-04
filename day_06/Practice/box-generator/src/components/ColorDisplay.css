@@ -1,0 +1,12 @@
+.box {
+    height: 100px; 
+    width: 100px;
+    /* background-color: black; */
+}
+
+.box-container{
+    width: 500px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
