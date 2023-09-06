@@ -9,7 +9,7 @@ function App() {
     axios.get("https://pokeapi.co/api/v2/pokemon?limit=807&offset=0")
         .then(response => {
             // we now run another promise to parse the HTTP response into usable JSON
-            console.log(response.data.results);
+            console.log(response);
             setPokemons(response.data.results)
         }).catch(err=>{
             console.log(err);
