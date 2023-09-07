@@ -1,0 +1,10 @@
+mkdir express or whatever
+cd express
+touch server.js  (ni for cmd)
+//npm init
+
+npm init -y
+
+npm install express
+touch .gitignore  { ekteb fih node_modules }
+
