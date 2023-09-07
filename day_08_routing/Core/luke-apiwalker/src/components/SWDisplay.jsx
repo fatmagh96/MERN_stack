@@ -4,13 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const SWDisplay = () => {
+    const baseUrl = "https://swapi.dev/api"
     const [object, setObject] = useState("")
+    const [homeLand,setHomeLand] = useState ('')
     const {id} = useParams()
     const navigate = useNavigate()
     useEffect(()=>{
-        axios.get(`https://swapi.dev/api/people/${id}/`)
+        axios.get(`${baseUrl}/people/${id}`)
         .then(response=>{setObject(response.data);
-            console.log(response.data)
+            console.log(response.data);
+            axios.get(response.data.homeworld).then(rep => setHomeLand(rep.data)).catch(err => navigate('/error'))
         })
         .catch(err=>{console.log(err)
             navigate('/error')
@@ -47,8 +50,7 @@ const SWDisplay = () => {
             <h5>Skin Color:</h5><span>{object.skin_color}</span>
         </div>   
         <div className="d-flex align-items-center gap-2">
-            {/* <p onClick={(e)=>getplanet(object.homeworld)}>{object.homeworld}</p> */}
-            {/* <h5>Skin Color:</h5><span>{object.skin_color}</span> */}
+        <h5>Home world:</h5><a className="pe-auto" style={{cursor: "pointer"}} onClick={()=>{navigate(homeLand.url.replace(baseUrl,""))}} >{homeLand.name}</a>
         </div>  
         
         
