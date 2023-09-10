@@ -38,7 +38,7 @@ console.log(newFakeCompany);
 // req is short for request
 // res is short for response
 app.get("/api/users/new", (req, res) => {
-    res.send(createUser());
+    res.json(createUser());
 });
 
 app.get("/api/companies/new", (req, res) => {
