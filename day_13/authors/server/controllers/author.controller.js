@@ -1,10 +1,10 @@
-const Note = require('../models/note.model')
+const Author = require('../models/author.model')
 
 
 module.exports = {
         // CRUD Queries
         findAll: (req, res)=>{
-            Note.find()
+            Author.find()
             .then(dbResponse => {
                 console.log("DATABASE RESPONSE TO FIND ALL :",dbResponse );
                 res.status(200).json(dbResponse)
@@ -15,7 +15,7 @@ module.exports = {
             })
         },
         findById: (req, res)=>{
-            Note.findById(req.params.id)
+            Author.findById(req.params.id)
             .then(dbResponse => {
                 console.log("DATABASE RESPONSE TO FIND ONE :",dbResponse );
                 res.status(200).json(dbResponse)
@@ -26,7 +26,7 @@ module.exports = {
             })
         },
         createOne: (req, res)=>{
-            Note.create(req.body)
+            Author.create(req.body)
             .then(dbResponse => {
                 console.log("DATABASE RESPONSE TO CREATE :",dbResponse );
                 res.status(201).json(dbResponse)
@@ -37,7 +37,7 @@ module.exports = {
             })
         },
         update: (req, res)=>{
-            Note.findByIdAndUpdate(req.params.id, req.body, {new:true, runValidators:true})
+            Author.findByIdAndUpdate(req.params.id, req.body, {new:true, runValidators:true})
             .then(dbResponse => {
                 console.log("DATABASE RESPONSE TO UPDATE :",dbResponse );
                 res.status(200).json(dbResponse)
@@ -48,7 +48,7 @@ module.exports = {
             })
         },
         delete: (req, res)=>{
-            Note.findByIdAndDelete(req.params.id)
+            Author.findByIdAndDelete(req.params.id)
             .then(dbResponse => {
                 console.log("DATABASE RESPONSE TO DELETE :",dbResponse );
                 res.status(200).json(dbResponse)

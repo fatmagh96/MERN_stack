@@ -8,8 +8,8 @@ const Nav = (props) => {
             <h1>🗒️Notes🗒️</h1>
         </div>
         <div className="d-flex justify-content-around">
-            <Link className='h2'>Home</Link>
-            <Link className='h2'>Create</Link>
+            <Link to={'/notes'} className='h2'>Home</Link>
+            <Link to={'/notes/new'} className='h2'>Create</Link>
         </div>
     </div>
   )

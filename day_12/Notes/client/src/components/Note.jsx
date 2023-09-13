@@ -12,7 +12,7 @@ const Note = ({note, deleteNote}) => {
         <div className='d-flex justify-content-between'>
             <p>{note.createdAt}</p>
             <div>
-                <button className={noteStyle.button_edit}><Link  to={`/notes/${note._id}/edit`}>Edit</Link></button>
+                <button className='btn btn-info mx-2' style={{width:"100px", height:"40px"}}><Link  to={`/notes/${note._id}/edit`}>Edit</Link></button>
                 <button className={noteStyle.button_delete} onClick={()=>deleteNote(note._id)}>Delete</button>
             </div>
         </div>
