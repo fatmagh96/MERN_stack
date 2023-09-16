@@ -8,7 +8,7 @@ const NoteEdit = (props) => {
   const [errors, setErrors] = useState({ title: "", content: "" })
   const updateNote = (e) => {
     e.preventDefault()
-    axios.put(`http://localhost:8000/api/notes/${id}`, note)
+    axios.put(`http://localhost:8000/api/notes/${id}`, note, {withCredentials:true})
       .then(response => {
         console.log(response.data)
         navigate('/notes')
@@ -25,7 +25,7 @@ const NoteEdit = (props) => {
       })
   }
   useEffect(()=> {
-    axios.get(`http://localhost:8000/api/notes/${id}`)
+    axios.get(`http://localhost:8000/api/notes/${id}`, {withCredentials:true})
     .then(response => {
       console.log(response);
       setNote(response.data)

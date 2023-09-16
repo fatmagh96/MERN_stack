@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
-import Form from '../components/Form'
+import Form from '../components/Notes/Form'
 
 const Edit = () => {
   const navigate = useNavigate()
@@ -10,7 +10,7 @@ const Edit = () => {
   const [errors, setErrors] = useState({ title: "", content: "" })
   const updateNote = (note) => {
     // e.preventDefault()
-    axios.put(`http://localhost:8000/api/notes/${id}`, note)
+    axios.put(`http://localhost:8000/api/notes/${id}`, note, {withCredentials:true})
       .then(response => {
         console.log(response.data)
         navigate('/notes')
@@ -27,12 +27,18 @@ const Edit = () => {
       })
   }
   useEffect(()=> {
-    axios.get(`http://localhost:8000/api/notes/${id}`)
+    axios.get(`http://localhost:8000/api/notes/${id}`, {withCredentials:true})
     .then(response => {
       console.log(response);
       setNote(response.data)
     })
-    .catch(error => console.log(error))
+    .catch(error =>{
+       console.log(error)
+       if(error.response.status == 401 ){
+          navigate('/')
+
+       }
+    })
   }, [id])
   return (
     <div>

@@ -5,7 +5,7 @@ const NoteList = (props) => {
   const [notes, setNotes] = useState([])
   const deleteNote = (id) => {
     console.log("NOTE ID = ",id, "WILL Be deleted");
-    axios.delete(`http://localhost:8000/api/notes/${id}`)
+    axios.delete(`http://localhost:8000/api/notes/${id}`,{withCredentials:true})
     .then(response=> {
       console.log(response)
       const filteredNotes = notes.filter(note => note._id != id)
@@ -14,7 +14,7 @@ const NoteList = (props) => {
     .catch(error => console.log(error))
   }
   useEffect(() => {
-    axios.get('http://localhost:8000/api/notes')
+    axios.get('http://localhost:8000/api/notes',{withCredentials:true})
       .then(serverResponse => {
         console.log("SERVER RESPONSE : ", serverResponse.data);
         setNotes(serverResponse.data)
