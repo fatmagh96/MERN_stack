@@ -4,7 +4,7 @@ const Author = require('../models/author.model')
 module.exports = {
         // CRUD Queries
         findAll: (req, res)=>{
-            Author.find()
+            Author.find().sort({name:1})
             .then(dbResponse => {
                 console.log("DATABASE RESPONSE TO FIND ALL :",dbResponse );
                 res.status(200).json(dbResponse)
